@@ -6,7 +6,8 @@ import Header from "./Header";
 
 function App() {
   const [lang, setLang] = useState<Language | null>(null);
-const [view, setView] = useState<"home">("home");
+const [view, setView] = useState<"home" | "calendar">("home");
+
 
   if (!lang) {
     return (
@@ -34,6 +35,24 @@ const [view, setView] = useState<"home">("home");
       </div>
     );
   }
+if (view === "calendar") {
+  return (
+    <Layout>
+      <Header lang={lang} title="calendar" />
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "2rem",
+        }}
+      >
+        📅 Calendario
+      </div>
+    </Layout>
+  );
+}
 
   return (
   <Layout>
@@ -53,16 +72,18 @@ const [view, setView] = useState<"home">("home");
   </h1>
 
   <button
-    style={{
-      padding: "1rem 2rem",
-      background: "#111",
-      color: "white",
-      border: "2px solid #333",
-      cursor: "pointer",
-    }}
-  >
-    {translations[lang].calendar}
-  </button>
+  onClick={() => setView("calendar")}
+  style={{
+    padding: "1rem 2rem",
+    background: "#111",
+    color: "white",
+    border: "2px solid #333",
+    cursor: "pointer",
+  }}
+>
+  {translations[lang].calendar}
+</button>
+
 
   <button
     style={{
