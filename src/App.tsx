@@ -6,6 +6,7 @@ import Header from "./Header";
 
 function App() {
   const [lang, setLang] = useState<Language | null>(null);
+const [view, setView] = useState<"home">("home");
 
   if (!lang) {
     return (
@@ -38,15 +39,44 @@ function App() {
   <Layout>
     <Header lang={lang} title="home" />
     <div
-      style={{
-        flex: 1,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <h1>{translations[lang].home}</h1>
-    </div>
+  style={{
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "1.5rem",
+  }}
+>
+  <h1 style={{ color: "#e6007e" }}>
+    {translations[lang].home}
+  </h1>
+
+  <button
+    style={{
+      padding: "1rem 2rem",
+      background: "#111",
+      color: "white",
+      border: "2px solid #333",
+      cursor: "pointer",
+    }}
+  >
+    {translations[lang].calendar}
+  </button>
+
+  <button
+    style={{
+      padding: "1rem 2rem",
+      background: "#111",
+      color: "white",
+      border: "2px solid #333",
+      cursor: "pointer",
+    }}
+  >
+    {translations[lang].my_reservations}
+  </button>
+</div>
+
   </Layout>
 );
 
