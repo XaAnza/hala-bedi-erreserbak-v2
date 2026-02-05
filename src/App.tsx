@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { translations } from "./translations";
 import type { Language } from "./types";
+import Layout from "./Layout";
+import Header from "./Header";
 
 function App() {
   const [lang, setLang] = useState<Language | null>(null);
