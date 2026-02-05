@@ -35,20 +35,21 @@ function App() {
   }
 
   return (
+  <Layout>
+    <Header lang={lang} title="home" />
     <div
       style={{
-        minHeight: "100vh",
-        background: "black",
-        color: "white",
+        flex: 1,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontFamily: "Arial, sans-serif",
       }}
     >
       <h1>{translations[lang].home}</h1>
     </div>
-  );
+  </Layout>
+);
+
 }
 
 export default App;
