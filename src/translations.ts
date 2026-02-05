@@ -98,3 +98,4 @@ export const translations = {
     permissions_denied: "Jakinarazpen baimenak ukatu dira."
   }
 };
+
