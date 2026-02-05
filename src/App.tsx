@@ -62,4 +62,94 @@ function App() {
             alignItems: "center",
             justifyContent: "center",
             fontSize: "2rem",
+          }}
+        >
+          📅 Calendario (base)
+        </div>
+      </Layout>
+    );
+  }
 
+  /* ─────────────── MIS RESERVAS ─────────────── */
+  if (view === "reservations") {
+    return (
+      <Layout>
+        <Header lang={lang} title="my_reservations" />
+        <button
+          onClick={() => setView("home")}
+          style={{
+            margin: "1rem",
+            background: "none",
+            border: "none",
+            color: "#e6007e",
+            cursor: "pointer",
+            fontWeight: "bold",
+          }}
+        >
+          ← {translations[lang].go_back}
+        </button>
+
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          📄 Mis reservas (pendiente)
+        </div>
+      </Layout>
+    );
+  }
+
+  /* ─────────────── HOME ─────────────── */
+  return (
+    <Layout>
+      <Header lang={lang} title="home" />
+
+      <div
+        style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "1.5rem",
+        }}
+      >
+        <h1 style={{ color: "#e6007e" }}>
+          {translations[lang].home}
+        </h1>
+
+        <button
+          onClick={() => setView("calendar")}
+          style={{
+            padding: "1rem 2rem",
+            background: "#111",
+            color: "white",
+            border: "2px solid #333",
+            cursor: "pointer",
+          }}
+        >
+          {translations[lang].calendar}
+        </button>
+
+        <button
+          onClick={() => setView("reservations")}
+          style={{
+            padding: "1rem 2rem",
+            background: "#111",
+            color: "white",
+            border: "2px solid #333",
+            cursor: "pointer",
+          }}
+        >
+          {translations[lang].my_reservations}
+        </button>
+      </div>
+    </Layout>
+  );
+}
+
+export default App;
